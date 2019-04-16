@@ -7,7 +7,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 
 class HealthPost(models.Model):
-    # user=models.ForeignKey(User,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
     n_id=models.IntegerField()
     hpost_name=models.CharField(max_length =30)
     district_name=models.CharField(max_length =20)
