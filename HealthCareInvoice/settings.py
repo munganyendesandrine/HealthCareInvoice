@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'health_care_invoice_app',
     'bootstrap3',
+    'health_care_invoice_app.apps.HealthCareInvoiceAppConfig',
 ]
 
 MIDDLEWARE = [
