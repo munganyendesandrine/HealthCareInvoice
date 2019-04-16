@@ -1,0 +1,29 @@
+<!-- {%extends 'registration/base.html'%} 
+{% block content %}
+{% load bootstrap3 %} {% load staticfiles %}
+<div class="container">
+
+  <div class="row">
+    {% if images%}
+      <h2>Found {{ images|length }} of searched terms "{{message}}"</h2>
+    {% else %}
+      <h2> Found 0 images for the search terms "{{message}}"</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+
+  {% if images %}
+    {% for picture in images %}
+      <div class="col-sm-6 col-md-3">
+        
+          <h1>{{picture.title}}</h1>
+          <img src="{{picture.image_landing_page.url}}" class="img-responsive" style="border-radius: 2%;  width:500%; ">
+        
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %} -->
