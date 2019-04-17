@@ -1,0 +1,5 @@
+Hello {{name}}!
+
+Welcome to the Health Care Invoice Application. 
+You will find the easy, quick and secure way of your data collection and management as well as service providing!
+Enjoy!

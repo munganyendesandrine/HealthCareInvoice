@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'',include('health_care_invoice_app.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     # url(r'^tinymce/', include('tinymce.urls')),
-    # url(r'^logout', views.logout, {"next_page": '/'}), 
+    url(r'^logout', views.logout, {"next_page": '/'}), 
     # url(r'^api-token-auth/', obtain_auth_token)
 ]
 

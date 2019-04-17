@@ -20,7 +20,9 @@ class HealthPost(models.Model):
     # def get_picture(cls,id):
     #     Profile.objects.all()
 
-
+class WelcomeMsgRecipients(models.Model):
+    name = models.CharField(max_length = 30)
+    email = models.EmailField()
 # class Projects(models.Model):
    
 #     title=models.CharField(max_length =20)
