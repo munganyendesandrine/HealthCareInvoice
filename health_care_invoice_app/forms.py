@@ -1,10 +1,48 @@
 from django import forms
 from .models import HealthPost,WelcomeMsgRecipients
 
+DISTRICTS= [
+    ('', 'Please Choose District'),
+    ('', 'Bugesera'),
+    ('', 'Burera'),
+    ('', 'Gakenke'),
+    ('', 'Gasabo'),
+    ('', 'Gatsibo'),
+    ('', 'Gicumbi'),
+    ('', 'Gisagara'),
+    ('', 'Huye'),
+    ('', 'Kamonyi'),
+    ('', 'Karongi'),
+    ('', 'Kayonza'),
+    ('', 'Kicukiro'),
+    ('', 'Kirehe'),
+    ('', 'Muhanga'),
+    ('', 'Musanze'),
+    ('', 'Ngoma'),
+    ('', 'Ngororero'),
+    ('', 'Nyabihu'),
+    ('', 'Nyagatare'),
+    ('', 'Nyamagabe'),
+    ('', 'Nyamasheke'),
+    ('', 'Nyanza'),
+    ('', 'Nyarugenge'),
+    ('', 'Nyaruguru'),
+    ('', 'Rubavu'),
+    ('', 'Ruhango'),
+    ('', 'Rulindo'),
+    ('', 'Rusizi'),
+    ('', 'Rutsiro'),
+    ('', 'Rwamagana'),
+    ]
+
 class HealthPostForm(forms.ModelForm):
     class Meta:
         model = HealthPost
         exclude = ["user"]
+        widgets = {
+            'district_name': forms.Select(choices=DISTRICTS)
+        }
+       
 # class ProfileForm(forms.ModelForm):
     # class Meta:
     #     model = Profile
