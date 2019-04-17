@@ -35,12 +35,20 @@ DISTRICTS= [
     ('', 'Rwamagana'),
     ]
 
+types_hc=[
+    ('', 'HC/CS'),
+    ('', 'HP/PS'),
+    ]
+
 class HealthPostForm(forms.ModelForm):
     class Meta:
         model = HealthPost
         exclude = ["user"]
         widgets = {
-            'district_name': forms.Select(choices=DISTRICTS)
+            'district_Name': forms.Select(choices=DISTRICTS),
+            # 'health_Facility_Type': forms.Select(choices=types_hc) 
+            'health_Facility_Type': forms.RadioSelect(choices=types_hc)
+            
         }
        
 # class ProfileForm(forms.ModelForm):

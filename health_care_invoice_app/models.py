@@ -8,10 +8,10 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class HealthPost(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    national_id=models.CharField(max_length =16)
-    healthpost_name=models.CharField(max_length =30)
-    district_name=models.CharField(max_length =20)
-    health_facility_type=models.CharField(max_length =30)
+    national_Id=models.CharField(max_length =16)
+    health_Post_Name=models.CharField(max_length =30)
+    district_Name=models.CharField(max_length =20)
+    health_Facility_Type=models.CharField(max_length =30)
 
     def __str__(self):
         return self.hpost_name
