@@ -23,7 +23,8 @@
       <h1><u><i>Details Of Medical Care Received</i></u></h1>
       <form  action="{%url 'service_details'%}" method="post" enctype="multipart/form-data">
         {%csrf_token%}
-    
+        
+        
         {% bootstrap_form form %}
         <input type="submit" class="btn btn-success btn-lg" value="Post">
       </form>
@@ -33,6 +34,7 @@
       {% bootstrap_javascript %} {% endblock %}
     
   </div>
+
 </body>
 
 </html>

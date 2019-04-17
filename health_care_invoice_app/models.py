@@ -61,6 +61,7 @@ class ServiceDetails(models.Model):
     type_Of_Medical_Visit=models.CharField(max_length =15)
     desease_Episode=models.CharField(max_length =15)
     purpose_Of_The_Visit=models.CharField(max_length =15)
+    consultation=models.CharField(max_length =100)
    
 
 #     @classmethod

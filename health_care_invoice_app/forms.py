@@ -82,10 +82,16 @@ desease_Episode=[
 ]     
 purpose_Of_The_Visit=[
     ('', 'Natural Disease'),
-    ('', 'Occupationsl Disease'),
+    ('', 'Occupational Disease'),
     ('', 'Road Traffic Accident'),
     ('', 'Work Accident'),
     ('', 'Other'),
+]
+consultation=[
+    ('', 'Description'),
+    ('', 'Quantity/Days'),
+    ('', 'Unit Cost'),
+    ('', 'Total Cost'),
 ]
 class ServiceDetailsForm(forms.ModelForm):
     class Meta:
@@ -94,7 +100,8 @@ class ServiceDetailsForm(forms.ModelForm):
         widgets = {
             'type_Of_Medical_Visit': forms.RadioSelect(choices=type_Of_Medical_Visit),
             'desease_Episode': forms.RadioSelect(choices=desease_Episode),
-            'purpose_Of_The_Visit': forms.RadioSelect(choices=purpose_Of_The_Visit)
+            'purpose_Of_The_Visit': forms.RadioSelect(choices=purpose_Of_The_Visit),
+            'consultation': forms.RadioSelect(choices=consultation),
         }
 
 class HealthPostForm2(forms.Form):
