@@ -8,8 +8,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class HealthPost(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    national_Id=models.CharField(max_length =16)
-    health_Post_Name=models.CharField(max_length =30)
+    national_ID=models.CharField(max_length =16)
+    health_Post_Name=models.CharField(max_length =50)
     district_Name=models.CharField(max_length =20)
     health_Facility_Type=models.CharField(max_length =30)
 
@@ -23,13 +23,19 @@ class HealthPost(models.Model):
 class WelcomeMsgRecipients(models.Model):
     name = models.CharField(max_length = 30)
     email = models.EmailField()
-# class Projects(models.Model):
-   
-#     title=models.CharField(max_length =20)
-#     image_landing_page=models.ImageField(upload_to = 'picture/',null=True)
-#     detailed_description=models.CharField(max_length =60)
-#     link_to_livesite=models.CharField(max_length =30)
 
+class Patient(models.Model):
+   
+    household_ID=models.CharField(max_length =16)
+    application_ID=models.CharField(max_length =8)
+    household_Name=models.CharField(max_length =50)
+    ubudehe_Category = models.IntegerField(choices=list(zip(range(1, 5), range(1, 5))))
+    beneficiary_Name=models.CharField(max_length =50)
+    phone_Number=models.CharField(max_length =60)
+    sex=models.CharField(max_length =30)
+    dOB=models.CharField(max_length =4)
+    prisonner=models.CharField(max_length =3)
+    catchement_Area=models.CharField(max_length =60)
 #     def save_projects(self):
 #         self.save() 
     

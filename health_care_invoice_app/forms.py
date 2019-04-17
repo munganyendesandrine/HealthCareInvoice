@@ -1,5 +1,5 @@
 from django import forms
-from .models import HealthPost,WelcomeMsgRecipients
+from .models import HealthPost,Patient,WelcomeMsgRecipients
 
 DISTRICTS= [
     ('', 'Please Choose District'),
@@ -46,15 +46,33 @@ class HealthPostForm(forms.ModelForm):
         exclude = ["user"]
         widgets = {
             'district_Name': forms.Select(choices=DISTRICTS),
-            # 'health_Facility_Type': forms.Select(choices=types_hc) 
             'health_Facility_Type': forms.RadioSelect(choices=types_hc)
             
         }
        
-# class ProfileForm(forms.ModelForm):
-    # class Meta:
-    #     model = Profile
-    #     exclude = ['user']
+catchement_area=[
+    ('', 'Z'),
+    ('', 'HZ'),
+    ('', 'HD'),
+]
+sex=[
+    ('', 'Female'),
+    ('', 'Male'),
+]
+prisonner=[
+    ('', 'YES'),
+    ('', 'NO'),
+]
+class PatientForm(forms.ModelForm):
+    class Meta:
+        model = Patient
+        exclude = []
+        widgets = {
+            'district_Name': forms.Select(choices=DISTRICTS),
+            'catchement_Area': forms.RadioSelect(choices=catchement_area),
+            'sex': forms.RadioSelect(choices=sex),
+            'prisonner': forms.RadioSelect(choices=prisonner)
+        }
         
 # class ProjectsForm(forms.ModelForm):
 #     class Meta:
