@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-# from tinymce.models import HTMLField
+from tinymce.models import HTMLField
 from django import forms
 from django.core.validators import MaxValueValidator, MinValueValidator
 
@@ -8,10 +8,10 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class HealthPost(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    n_id=models.IntegerField()
-    hpost_name=models.CharField(max_length =30)
+    national_id=models.CharField(max_length =16)
+    healthpost_name=models.CharField(max_length =30)
     district_name=models.CharField(max_length =20)
-    hfacility_type=models.CharField(max_length =30)
+    health_facility_type=models.CharField(max_length =30)
 
     def __str__(self):
         return self.hpost_name
