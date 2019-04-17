@@ -32,8 +32,8 @@ class Patient(models.Model):
     ubudehe_Category = models.IntegerField(choices=list(zip(range(1, 5), range(1, 5))))
     beneficiary_Name=models.CharField(max_length =50)
     phone_Number=models.CharField(max_length =60)
-    sex=models.CharField(max_length =30)
     dOB=models.CharField(max_length =4)
+    sex=models.CharField(max_length =30)
     prisonner=models.CharField(max_length =3)
     catchement_Area=models.CharField(max_length =60)
 #     def save_projects(self):
@@ -56,21 +56,12 @@ class Patient(models.Model):
 #         return images 
 
 
-
-# class Rating2(models.Model):
+class ServiceDetails(models.Model):
    
-#     design_rate=models.IntegerField(
-#         default=0,
-#         validators=[MaxValueValidator(10), MinValueValidator(1)])
-#     # design_unlike=models.IntegerField()
-#     content_rate=models.IntegerField(
-#         default=0,
-#         validators=[MaxValueValidator(10), MinValueValidator(1)])
-#     # content_unlike=models.IntegerField()
-#     usability_rate=models.IntegerField(
-#         default=0,
-#         validators=[MaxValueValidator(10), MinValueValidator(1)])
-#     # usability_unlike=models.IntegerField()
+    type_Of_Medical_Visit=models.CharField(max_length =15)
+    desease_Episode=models.CharField(max_length =15)
+    purpose_Of_The_Visit=models.CharField(max_length =15)
+   
 
 #     @classmethod
 #     def get_rates(cls,id):

@@ -1,9 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .email import send_welcome_email
-from .forms import HealthPostForm,PatientForm,HealthPostForm2
+from .forms import HealthPostForm,PatientForm,ServiceDetailsForm,HealthPostForm2
 from django.http import HttpResponse, Http404,HttpResponseRedirect
-from .models import HealthPost,Patient,WelcomeMsgRecipients
+from .models import HealthPost,Patient,ServiceDetails,WelcomeMsgRecipients
 # Create your views here.
 @login_required(login_url='/accounts/login/')
 def welcome(request):
@@ -44,7 +44,7 @@ def patient_info(request):
 def service_details(request):
     current_user = request.user
     if request.method == 'POST':
-        form = HealthPostForm(request.POST, request.FILES)
+        form = ServiceDetailsForm(request.POST, request.FILES)
         if form.is_valid():
             details = form.save(commit=False)
             details.user = current_user
@@ -52,8 +52,8 @@ def service_details(request):
         return redirect('welcome')
 
     else:
-       form = HealthPostForm()
-    return render(request, 'patient.html', {"form": form})
+       form = ServiceDetailsForm()
+    return render(request, 'serviceDetails.html', {"form": form})
     
 def send_mail(request):
     if request.method == 'POST':

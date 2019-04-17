@@ -1,5 +1,5 @@
 from django import forms
-from .models import HealthPost,Patient,WelcomeMsgRecipients
+from .models import HealthPost,Patient,ServiceDetails,WelcomeMsgRecipients
 
 DISTRICTS= [
     ('', 'Please Choose District'),
@@ -68,25 +68,35 @@ class PatientForm(forms.ModelForm):
         model = Patient
         exclude = []
         widgets = {
-            'district_Name': forms.Select(choices=DISTRICTS),
             'catchement_Area': forms.RadioSelect(choices=catchement_area),
             'sex': forms.RadioSelect(choices=sex),
             'prisonner': forms.RadioSelect(choices=prisonner)
         }
-        
-# class ProjectsForm(forms.ModelForm):
-#     class Meta:
-#         model = Projects
-#         exclude = []
+type_Of_Medical_Visit=[
+    ('', 'Outpatient'),
+    ('', 'Inpatient'),
+] 
+desease_Episode=[
+    ('', 'New Case'),
+    ('', 'Old Case'),
+]     
+purpose_Of_The_Visit=[
+    ('', 'Natural Disease'),
+    ('', 'Occupationsl Disease'),
+    ('', 'Road Traffic Accident'),
+    ('', 'Work Accident'),
+    ('', 'Other'),
+]
+class ServiceDetailsForm(forms.ModelForm):
+    class Meta:
+        model = ServiceDetails
+        exclude = []
+        widgets = {
+            'type_Of_Medical_Visit': forms.RadioSelect(choices=type_Of_Medical_Visit),
+            'desease_Episode': forms.RadioSelect(choices=desease_Episode),
+            'purpose_Of_The_Visit': forms.RadioSelect(choices=purpose_Of_The_Visit)
+        }
 
-# class RatingForm(forms.ModelForm):
-#     class Meta:
-#         model = Rating2
-#         exclude = []
-#         # widgets = {
-#         #     'content': forms.CheckboxSelectMultiple(),
-#         # }
-#         # content=forms.CharField(widget=forms.Textarea)
 class HealthPostForm2(forms.Form):
     your_name = forms.CharField(label='First Name',max_length=30)
     email = forms.EmailField(label='Email')
